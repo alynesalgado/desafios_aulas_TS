@@ -24,8 +24,9 @@ class CustomPlayer {
 
   render(sectionId: string) {
 
-    const section = document.createElement('section');
-    section.setAttribute('id', sectionId);
+    const sectionToAppend: HTMLElement | null = document.getElementById(`${sectionId}`);
+    // const section = document.createElement('section');
+    // section.setAttribute('id', sectionId);
 
     const videoPlayer = `
       <h1>Video Player</h1>
@@ -37,7 +38,11 @@ class CustomPlayer {
       </video>
     `
 
-    section.innerHTML = videoPlayer;
+    if(sectionToAppend !== null){
+      sectionToAppend.innerHTML = videoPlayer;
+    }
+
+    // section.innerHTML = videoPlayer;
   }
 }
 
